@@ -1,0 +1,56 @@
+.map-wrapper {
+  position: relative;
+  padding-top: 80px;
+  position: relative;
+
+  @media (max-width: 620px) {
+    padding-top: 50px;
+  }
+
+  @media (max-height: 500px) {
+    padding-top: 50px;
+  }
+
+  #map {
+    width: 100%;
+    height: 400px;
+
+    @media (max-height: 720px) {
+      height: 300px;
+    }
+
+    @media (max-height: 400px) {
+      height: 200px;
+    }
+  }
+}
+
+.leaflet-popup-content-wrapper {
+  .marker-item {
+
+    .add-to-route {
+      background-color: #eee;
+      cursor: pointer;
+
+      &.active {
+        color: #fff;
+        background-color: #444;
+      }
+
+      &.inactive {
+      }
+    }
+  }
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+}
+
+.leaflet-popup-content-wrapper {
+  border-radius: 3px;
+}
+
+.leaflet-routing-container {
+  display: none;
+}

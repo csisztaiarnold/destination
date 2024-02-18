@@ -1,0 +1,79 @@
+.fullsize-image-container {
+  display: none;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-position: center center;
+  z-index: 60000;
+  background-repeat: no-repeat;
+
+  .prev, .next, .close-gallery {
+    position: absolute;
+    cursor: pointer;
+    color: #fff;
+    z-index: 40010;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+
+    i {
+      font-size: 80px;
+      line-height: 1;
+    }
+  }
+
+  .prev {
+    left: 10px;
+    top: calc(50% - 40px);
+  }
+
+  .next {
+    right: 10px;
+    top: calc(50% - 40px);
+  }
+
+  .close-gallery {
+    top: 10px;
+    right: 10px;
+
+    i {
+      font-size: 60px;
+    }
+  }
+}
+
+.marker-item {
+  text-align: center;
+  min-width: 170px;
+
+  img {
+    border-radius: 3px;
+    margin-top: 5px;
+  }
+
+  .add-to-route {
+    font-size: 10px;
+  }
+
+  a.title {
+    color: #fc4444;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .add-to-route-container {
+    clear: both;
+    padding-top: 5px;
+
+    .add-to-route {
+      position: relative;
+      bottom: unset;
+      left: unset;
+
+      &::before {
+        top: 5px;
+      }
+    }
+  }
+}

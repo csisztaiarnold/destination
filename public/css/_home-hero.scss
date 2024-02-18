@@ -1,0 +1,559 @@
+.home-hero-wrapper {
+
+  .home-hero {
+    margin-top: 80px;
+    background: linear-gradient(260deg, #004ddd, #00bbdd);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    @media (max-width: 620px) {
+      margin-top: 50px;
+    }
+
+    @media (max-height: 500px) {
+      margin-top: 50px;
+    }
+
+    .background-airplane_1, .background-airplane_2, .background-clouds, .background-layer_1, .background-layer_2, .background-layer_3, .background-layer_4, .background-layer_5 {
+      position: absolute;
+      z-index: 15;
+      width: 110%;
+      left: -20px;
+      bottom: -20px;
+    }
+
+    .background-clouds {
+      z-index: 10;
+      opacity: 0.1;
+      top: -50px;
+      width: 390%;
+    }
+
+    .background-airplane_1, .background-airplane_2 {
+      z-index: 5;
+      opacity: 0.3;
+      top: 50px;
+      width: 20%;
+    }
+
+    .background-airplane_2 {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg);
+      top: 10px;
+    }
+  }
+
+  @keyframes cloudAnimation {
+    0% {
+      left: 100px
+    }
+    50% {
+      left: -1400px
+    }
+    100% {
+      left: 0px;
+    }
+  }
+
+  @keyframes airplaneAnimation_1 {
+    0% {
+      left: -340px
+    }
+    100% {
+      left: 6000px;
+    }
+  }
+
+  @keyframes airplaneAnimation_2 {
+    0% {
+      left: 3000px
+    }
+    100% {
+      left: -100px;
+    }
+  }
+
+  @keyframes flickerAnimation_1 {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-o-keyframes flickerAnimation_1 {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-moz-keyframes flickerAnimation_1 {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @-webkit-keyframes flickerAnimation_1 {
+    0% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flickerAnimation_2 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-o-keyframes flickerAnimation_2 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes flickerAnimation_2 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes flickerAnimation_2 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    40% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes flickerAnimation_3 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-o-keyframes flickerAnimation_3 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes flickerAnimation_3 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes flickerAnimation_3 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 1;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes flickerAnimation_4 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-o-keyframes flickerAnimation_4 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes flickerAnimation_4 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes flickerAnimation_4 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes flickerAnimation_5 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-o-keyframes flickerAnimation_5 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-moz-keyframes flickerAnimation_5 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @-webkit-keyframes flickerAnimation_5 {
+    0% {
+      opacity: 0;
+    }
+    20% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    60% {
+      opacity: 0;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .home-hero {
+
+    .background-airplane_1 {
+      -webkit-animation: airplaneAnimation_1 450s infinite;
+      -moz-animation: airplaneAnimation_1 450s infinite;
+      -o-animation: airplaneAnimation_1 450s infinite;
+      animation: airplaneAnimation_1 450s infinite;
+    }
+
+    .background-airplane_2 {
+      -webkit-animation: airplaneAnimation_2 250s infinite;
+      -moz-animation: airplaneAnimation_2 250s infinite;
+      -o-animation: airplaneAnimation_2 250s infinite;
+      animation: airplaneAnimation_2 250s infinite;
+    }
+
+    .background-clouds {
+      -webkit-animation: cloudAnimation 250s infinite;
+      -moz-animation: cloudAnimation 250s infinite;
+      -o-animation: cloudAnimation 250s infinite;
+      animation: cloudAnimation 250s infinite;
+    }
+
+    .background-layer_1 {
+      -webkit-animation: flickerAnimation_1 50s infinite;
+      -moz-animation: flickerAnimation_1 50s infinite;
+      -o-animation: flickerAnimation_1 50s infinite;
+      animation: flickerAnimation_1 50s infinite;
+    }
+
+    .background-layer_2 {
+      opacity: 0;
+      -webkit-animation: flickerAnimation_2 50s infinite;
+      -moz-animation: flickerAnimation_2 50s infinite;
+      -o-animation: flickerAnimation_2 50s infinite;
+      animation: flickerAnimation_2 50s infinite;;
+    }
+
+    .background-layer_3 {
+      opacity: 0;
+      -webkit-animation: flickerAnimation_3 50s infinite;
+      -moz-animation: flickerAnimation_3 50s infinite;
+      -o-animation: flickerAnimation_3 50s infinite;
+      animation: flickerAnimation_3 50s infinite;
+    }
+
+    .background-layer_4 {
+      opacity: 0;
+      -webkit-animation: flickerAnimation_4 50s infinite;
+      -moz-animation: flickerAnimation_4 50s infinite;
+      -o-animation: flickerAnimation_4 50s infinite;
+      animation: flickerAnimation_4 50s infinite;
+    }
+
+    .background-layer_5 {
+      opacity: 0;
+      -webkit-animation: flickerAnimation_5 50s infinite;
+      -moz-animation: flickerAnimation_5 50s infinite;
+      -o-animation: flickerAnimation_5 50s infinite;
+      animation: flickerAnimation_5 50s infinite;
+    }
+
+  }
+}

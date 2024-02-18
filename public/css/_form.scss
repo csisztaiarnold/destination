@@ -1,0 +1,48 @@
+form, .form {
+  padding: 0;
+  margin: 0;
+
+  .field-group {
+    margin-bottom: 20px;
+  }
+
+  .info {
+    margin: 2px 0 0 0;
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  label {
+    display: block;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: $color-txt-primary;
+  }
+
+  input.text, select, textarea {
+    width: 100%;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    margin: 5px 0 0 0;
+    font-size: 1.4em;
+    border: 1px solid #ddd;
+    border-radius: $border-radius-primary;
+    color: $color-txt-primary;
+    background: #fff;
+  }
+
+  input.checkbox {
+    width: 20px;
+    height: 20px;
+    float: left;
+    margin-top: -1px;
+    margin-right: 10px;
+  }
+
+  textarea {
+    height: 400px;
+  }
+}

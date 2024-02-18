@@ -1,0 +1,74 @@
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+input, textarea, select {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
+* {
+  outline: none;
+}
+
+a {
+  color: #2369bf;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+strong {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 200;
+  padding: 0;
+  margin: 0 0 40px 0;
+  color: $color-txt-primary;
+  text-align: center;
+}
+
+h2 {
+  font-size: 2em;
+  font-weight: 200;
+  padding: 0;
+  margin: 20px 0 20px 0;
+  color: $color-txt-primary;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.error-page {
+  padding-top: 180px;
+}
+
+.message {
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+  padding-top: 40px;
+}

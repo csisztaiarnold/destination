@@ -1,0 +1,392 @@
+.place-details {
+  border-right: 1px dashed #ddd;
+  padding-right: 20px;
+
+  @media (max-width: 991px) {
+    border-right: none;
+  }
+}
+
+.included-in-routes {
+
+  @media (max-width: 991px) {
+    margin-top: 20px;
+  }
+}
+
+.place-item {
+  display: block;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  background-color: #f5f5f5;
+  margin-bottom: 20px;
+
+  .title {
+    display: block;
+    margin: 0;
+    background-image: $dark_gray_linear_gradient;
+    color: #eee;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    padding: 12px 15px 7px 25px;
+    opacity: 1;
+    border-radius: 3px 3px 0 0;
+
+    @media (max-width: 960px) {
+      border-radius: 0;
+      padding: 10px 5px 5px 15px;
+    }
+
+    &:hover {
+      color: #fff;
+    }
+
+    .inner-cut {
+      width: 72%;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      display: inline-block;
+      white-space: nowrap;
+    }
+  }
+
+  .place-item-image {
+    display: block;
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-color: #ddd;
+
+    @media (max-width: 960px) {
+      height: 150px;
+    }
+  }
+
+  .city-county {
+    padding: 20px 20px 0 20px;
+
+    @media (max-width: 960px) {
+      font-size: 0.9em;
+    }
+
+    a {
+      color: $color-txt-secondary;
+      border-bottom: 1px dashed $color-txt-secondary;
+      transition: 0.3s;
+
+      &:hover {
+        border-bottom: 1px dashed rgba(0, 0, 0, 0);
+      }
+    }
+
+    @media (max-width: 960px) {
+      padding: 10px 10px 0 10px;
+    }
+  }
+
+  .description {
+
+    @media (max-width: 960px) {
+      height: auto;
+    }
+
+    .content-wrapper {
+      font-size: 1em;
+      line-height: 1.5em;
+      padding: 20px;
+
+      @media (max-width: 960px) {
+        padding: 10px;
+        font-size: 0.9em;
+        line-height: 1.5em;
+      }
+    }
+  }
+}
+
+.place-page {
+
+  .description {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+
+  .header {
+    height: 500px;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+
+    @media (max-width: 768px) {
+      height: unset;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+
+      @media (max-width: 768px) {
+        justify-content: space-evenly;
+        align-items: stretch;
+        flex-wrap: wrap;
+        flex-direction: column;
+      }
+    }
+
+    .title-container {
+      position: absolute;
+      bottom: 40px;
+      left: 40px;
+      width: 50%;
+
+      @media (max-width: 768px) {
+        padding-bottom: 30px;
+      }
+
+      @media (max-width: 1200px) {
+        width: 70%;
+      }
+
+      @media (max-width: 960px) {
+        position: relative;
+        bottom: unset;
+        left: unset;
+        width: 100%;
+        padding-top: 110px;
+      }
+
+      @media (max-width: 620px) {
+        padding-top: 70px;
+      }
+
+      .title {
+        margin: 0;
+        background-image: linear-gradient(30deg, white 70%, rgba(255, 255, 255, 0.9) 78%, rgba(255, 255, 255, 0.6) 100%);
+        font-size: 1em;
+        box-shadow: 0 3px 4px -4px rgba(0, 0, 0, 0.4);
+        text-align: left;
+        padding: 40px;
+        border-radius: 3px;
+
+        @media (max-width: 960px) {
+          padding: 20px;
+        }
+
+
+        h1 {
+          padding-bottom: 10px;
+          margin: 0;
+          font-size: 2.2em;
+          color: #444;
+          text-align: left;
+
+          @media (max-width: 960px) {
+            font-size: 1.8em;
+          }
+        }
+
+        .city-county {
+          padding: 0 0 10px 0;
+          margin: 0;
+          font-size: 1.2em;
+          color: #444;
+          text-decoration: none;
+
+          @media (max-width: 960px) {
+            font-size: 1em;
+          }
+
+          a {
+            color: $color-txt-secondary;
+            border-bottom: 1px dashed $color-txt-secondary;
+            opacity: 1;
+            transition: 0.3s;
+
+            &:hover {
+              color: $color-txt-secondary;
+              border-bottom: 1px dashed rgba(0, 0, 0, 0);
+            }
+          }
+        }
+
+        .address {
+          padding: 0 0 5px 0;
+          margin: 0;
+          font-size: 0.9em;
+          color: #555;
+          text-decoration: none;
+
+          .material-icons {
+            vertical-align: -4px;
+            font-size: 1.5em;
+          }
+        }
+
+        .website, .facebook-page {
+          padding: 5px 0;
+
+          a {
+            font-size: 1em;
+            color: $color-txt-secondary;
+            opacity: 1;
+            transition: 0.3s;
+
+            &:hover {
+              color: $color-txt-secondary;
+            }
+          }
+
+          .material-icons {
+            vertical-align: -6px;
+          }
+        }
+      }
+    }
+  }
+
+  .rating {
+    padding: 10px 0 0 0;
+    margin: 0;
+    color: #ddd;
+  }
+
+  .uploaded-images-container {
+    text-align: center;
+    padding: 20px 0 20px 0;
+
+    .image {
+      position: relative;
+      width: 150px;
+      height: 100px;
+      background-size: cover;
+      display: inline-block;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      background-position: bottom center;
+      transition: 2s;
+      border-radius: 3px;
+
+      @media (max-width: 960px) {
+        border-radius: 0;
+      }
+
+      &:hover {
+        text-decoration: none;
+        background-position: top center;
+      }
+    }
+  }
+
+  .add-to-route-container {
+    clear: both;
+    padding-top: 10px;
+
+    .add-to-route {
+      position: relative;
+      bottom: unset;
+      left: unset;
+    }
+  }
+
+  .map-wrapper {
+    position: relative;
+    margin-top: 20px;
+    padding-top: 0;
+
+    .google-maps-route {
+      position: absolute;
+      left: unset;
+      bottom: unset;
+      right: 20px;
+      top: 20px;
+    }
+  }
+
+  .route-list {
+
+    h2 {
+      font-size: 1em;
+      color: $color-txt-primary;
+      padding: 0 0 10px 0;
+      margin: 0;
+      font-weight: 400;
+    }
+
+    a {
+      display: block;
+      font-size: 0.8em;
+      color: $color-txt-secondary;
+      padding: 0 0 5px 0;
+      transition: 0.3s;
+
+      .material-icons {
+        font-size: 1.2em;
+        vertical-align: -4px;
+      }
+
+      &:hover {
+        color: $color-txt-primary
+      }
+    }
+  }
+
+  .accessibility-info {
+    padding: 2px 0;
+    color: #555;
+    font-size: 0.9em;
+
+    .material-icons {
+      vertical-align: middle;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.nearby-places {
+
+  h2 {
+    background-color: #eee;
+    color: #444;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: relative;
+    padding: 15px 15px 15px 20px;
+    margin: 20px 0 20px 0;
+    opacity: 1;
+    border-radius: 3px;
+
+    @media (max-width: 960px) {
+      border-radius: 0;
+    }
+  }
+
+  .rating {
+    padding: 0;
+  }
+}
+
+.distance-between {
+  margin: 10px 0 0 20px;
+  font-size: 0.8em;
+  font-weight: 400;
+
+  a {
+    color: rgba($color-txt-primary, 1);
+    text-decoration: none;
+    transition: 0.3s;
+    border-bottom: 1px dashed rgba(#aaa, 1);
+
+    &:hover {
+      border-bottom: 1px dashed rgba(#aaa, 0);
+    }
+  }
+}

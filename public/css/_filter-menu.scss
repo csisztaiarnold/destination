@@ -1,0 +1,116 @@
+.filter-menu {
+  margin: 0;
+  padding: 0;
+  columns: 2;
+  page-break-inside: avoid;
+  break-inside: avoid-column;
+  z-index: 2000;
+
+  li {
+    padding: 5px 10px 5px 10px;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 3px;
+    display: inline-block;
+    width: 100%;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    &.active {
+      background-color: rgba(255, 255, 255, 0.1);
+      background-image: url(../img/done.png);
+      background-position: right 5px center;
+      background-repeat: no-repeat;
+      font-weight: 600;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+}
+
+.search-filter-container {
+  margin: 0 10px 10px 10px;
+  text-align: center;
+
+  h1 {
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9em;
+    padding: 0;
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  form {
+    padding: 30px;
+    margin: 0 0 20px 0;
+    text-align: center;
+    background-color: #eee;
+    display: inline-block;
+    border-radius: 5px;
+
+    @media (max-width: 960px) {
+      padding: 10px;
+      margin: 0 0 10px 0;
+    }
+
+    .form-group {
+      display: inline-block;
+
+      label {
+        font-size: 0.8em;
+        color: #666;
+        text-transform: uppercase;
+        text-align: left;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 3px;
+
+        @media (max-width: 960px) {
+          font-size: 0.6em;
+          margin-top: 5px;
+        }
+      }
+    }
+
+    select, .submit {
+      border: 0;
+      margin: 0;
+      padding: 10px;
+      background-color: #fff;
+      border-bottom: 1px solid #ddd;
+      display: inline-block;
+      font-size: 1em;
+      font-weight: 400;
+      width: auto;
+      border-radius: 3px;
+      transition: 0.3s;
+
+      @media (max-width: 960px) {
+        padding: 7px;
+        font-size: 0.8em;
+      }
+    }
+
+    .submit {
+      cursor: pointer;
+      font-weight: 400;
+
+      &:hover {
+        background-color: #eeeeee;
+      }
+
+      @media (max-width: 960px) {
+        margin-top: 5px;
+      }
+    }
+
+    .subcategory-container.inactive {
+      display: none;
+    }
+  }
+}
