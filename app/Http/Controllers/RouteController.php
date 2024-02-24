@@ -11,7 +11,6 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Routing\Redirector;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
@@ -33,24 +32,17 @@ class RouteController extends Controller
     protected $route;
 
     /**
-     * @var UserRoute
-     */
-    protected $user_route;
-
-    /**
      * RouteController constructor.
      *
      * @param Guzzle    $guzzle
      * @param Place     $place
      * @param Route     $route
-     * @param UserRoute $user_route
      */
-    public function __construct(Guzzle $guzzle, Place $place, Route $route, UserRoute $user_route)
+    public function __construct(Guzzle $guzzle, Place $place, Route $route)
     {
         $this->guzzle = $guzzle;
         $this->place = $place;
         $this->route = $route;
-        $this->user_route = $user_route;
     }
 
     /**
@@ -184,6 +176,7 @@ class RouteController extends Controller
             ->update([
                 'slug' => $route_slug,
                 'name' => $name,
+                'user_id' => auth()->id() ?? null
             ]);
         return redirect('show-route/' . $route_slug . '/' . $route->id);
     }
@@ -202,26 +195,23 @@ class RouteController extends Controller
         $error = '';
         if (isset($route->id)) {
             $places = $this->place->getPlacesByBestRouteIdArray('*', explode(',', $route->best_route));
-            if ($route->public !== 1) {
-                $error = __('This route is private.');
-            }
-        } else {
-            $error = __('Your route is empty.');
-            if ($route_id !== 0) {
-                $error = __('This route has been deleted or it never existed.');
-            }
         }
 
         request()->session()->put('last_route_page', url()->current());
 
+        $could_be_displayed = false;
+        if ((auth()->id() === isset($route->user_id) ?? 0) || isset($route->public) ?? 0 === 1) {
+            $could_be_displayed = true;
+        }
+
         return view('route.show', [
             'places' => $places,
-            'error' => $error,
             'route' => $route,
+            'could_be_displayed' => $could_be_displayed,
             'lat_lng_js_string' => '',
             'popup_text_js_string' => '',
             'page_class' => 'route-page',
-            'title' => isset($route->name) ? __('Your route: :route_name', ['route_name' => $route->name]) : '',
+            'title' => isset($route->name) ? __('Útvonal: :route_name', ['route_name' => $route->name]) : '',
         ]);
     }
 
@@ -233,7 +223,7 @@ class RouteController extends Controller
      *
      * @return RedirectResponse
      */
-    public function setStartingPoint(int $route_id, int $place_id)
+    public function setStartingPoint(int $route_id, int $place_id): RedirectResponse
     {
         $route = $this->route->where('id', $route_id)->first();
 
@@ -259,7 +249,7 @@ class RouteController extends Controller
      *
      * @return RedirectResponse
      */
-    public function setEndingPoint(int $route_id, int $place_id)
+    public function setEndingPoint(int $route_id, int $place_id): RedirectResponse
     {
         $route = $this->route->where('id', $route_id)->first();
 
@@ -315,9 +305,9 @@ class RouteController extends Controller
      */
     public function addRouteToFavorites()
     {
-        $this->user_route->updateOrCreate([
+        $this->route->updateOrCreate([
             'user_id' => auth()->id(),
-            'route_id' => request()->input('route_id'),
+            'id' => request()->input('route_id'),
             'name' => empty(request()->input('route_name')) ? __('Névtelen útiterv (') . date(
                     'Y-m-d H:i:s'
                 ) . ')' : request()->input('route_name'),
@@ -335,12 +325,12 @@ class RouteController extends Controller
             request()->session()->get('starting_point_location')
         );
 
-        if ($this->user_route->routeAlreadySaved($route->id ?? null, auth()->id()) === true) {
+        if ($this->route->routeAlreadySaved($route->id ?? null, auth()->id()) === true) {
             return redirect()->back();
         } else {
-            $this->user_route->insert([
+            $this->route->insert([
                 'user_id' => auth()->id(),
-                'route_id' => $route->id,
+                'id' => $route->id,
                 'name' => request()->input('route_name') ? __('Névtelen útiterv (') . date(
                         'Y-m-d H:i:s'
                     ) . ')' : request()->input('route_name'),
@@ -369,16 +359,7 @@ class RouteController extends Controller
     public function routesList()
     {
         return view('user.list_routes')->with([
-            'routes' => $this->user_route
-                ->select(
-                    '*',
-                    \DB::raw(
-                        "user_routes.id as route_id, user_routes.name as route_name, user_routes.public as public, user_routes.user_id as user_id"
-                    )
-                )
-                ->where('user_routes.user_id', auth()->id())
-                ->leftJoin('routes', 'routes.id', '=', 'route_id')
-                ->get(),
+            'routes' => $this->route->where('user_id', auth()->id())->get(),
             'title' => __('My routes'),
             'page_class' => 'route-list',
         ]);
@@ -392,12 +373,13 @@ class RouteController extends Controller
      *
      * @return RedirectResponse
      */
-    public function updateRoute($action, $route_id) {
-        $public = NULL;
+    public function updateRoute($action, $route_id)
+    {
+        $public = 0;
         if ($action === 'set_public') {
             $public = 1;
         }
-        $this->user_route->where('route_id', $route_id)
+        $this->route->where('id', $route_id)
             ->where('user_id', auth()->id())
             ->update([
                 'public' => $public,
@@ -412,8 +394,9 @@ class RouteController extends Controller
      *
      * @return RedirectResponse
      */
-    public function deleteSavedRoute($route_id) {
-        $this->user_route->where('route_id', $route_id)
+    public function deleteSavedRoute($route_id)
+    {
+        $this->route->where('id', $route_id)
             ->where('user_id', auth()->id())
             ->delete();
         return redirect()->back();

@@ -76,3 +76,11 @@ h2 {
     font-size: 20px;
   }
 }
+
+.common-content {
+  padding-top: 120px;
+
+  @media (max-width: 960px) {
+    padding-top: 80px;
+  }
+}

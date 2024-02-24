@@ -102,5 +102,22 @@ class Route extends Model
             ->first();
     }
 
-
+    /**
+     * Is the route already saved?
+     *
+     * @param $route_id
+     * @param $user_id
+     *
+     * @return bool
+     */
+    public static function routeAlreadySaved($route_id, $user_id): bool
+    {
+        $route = self::where('id', $route_id)
+            ->where('user_id', $user_id)
+            ->first();
+        if (isset($route->id)) {
+            return true;
+        }
+        return false;
+    }
 }

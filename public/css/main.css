@@ -63,6 +63,12 @@ h2 {
     .message {
       font-size: 20px; } }
 
+.common-content {
+  padding-top: 120px; }
+  @media (max-width: 960px) {
+    .common-content {
+      padding-top: 80px; } }
+
 .container {
   padding-right: 15px;
   padding-left: 15px;
