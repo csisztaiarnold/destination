@@ -55,7 +55,7 @@ h2 {
   padding-top: 180px; }
 
 .message {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: 300;
   text-align: center;
   padding-top: 40px; }
@@ -225,7 +225,7 @@ form, .form {
   color: #fff;
   margin-top: 5px; }
 
-.login, .register, .password-reset-form {
+.login, .register, .password-reset {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -236,17 +236,20 @@ form, .form {
   left: 0;
   bottom: 0;
   right: 0; }
-  .login .login-form, .login .register-form, .register .login-form, .register .register-form, .password-reset-form .login-form, .password-reset-form .register-form {
+  .login .login-form, .login .register-form, .login .password-reset-form, .register .login-form, .register .register-form, .register .password-reset-form, .password-reset .login-form, .password-reset .register-form, .password-reset .password-reset-form {
     display: block;
     order: 0;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
-    padding: 40px;
+    padding: 120px 0 120px 0;
     border-radius: 3px; }
     @media (max-width: 960px) {
-      .login .login-form, .login .register-form, .register .login-form, .register .register-form, .password-reset-form .login-form, .password-reset-form .register-form {
-        width: 98%; } }
-  .login .forgot-your-password, .register .forgot-your-password, .password-reset-form .forgot-your-password {
+      .login .login-form, .login .register-form, .login .password-reset-form, .register .login-form, .register .register-form, .register .password-reset-form, .password-reset .login-form, .password-reset .register-form, .password-reset .password-reset-form {
+        width: 80%; } }
+    @media (max-width: 960px) {
+      .login .login-form #send-email-reset-password, .login .register-form #send-email-reset-password, .login .password-reset-form #send-email-reset-password, .register .login-form #send-email-reset-password, .register .register-form #send-email-reset-password, .register .password-reset-form #send-email-reset-password, .password-reset .login-form #send-email-reset-password, .password-reset .register-form #send-email-reset-password, .password-reset .password-reset-form #send-email-reset-password {
+        width: 100%; } }
+  .login .forgot-your-password, .register .forgot-your-password, .password-reset .forgot-your-password {
     font-size: 1.2em;
     margin: 10px 0; }
 
@@ -1342,7 +1345,11 @@ header {
             height: unset;
             padding: 10px 15px;
             vertical-align: middle;
-            border-bottom: 1px solid #eee; } }
+            border-bottom: 1px solid #ddd;
+            border-right: 1px solid #ddd; } }
+        @media (max-width: 400px) {
+          header ul li a {
+            border-right: none; } }
         header ul li a:hover {
           background-color: #292929;
           color: #aaa; }

@@ -1,7 +1,7 @@
-{{ __('Hello, :name', ['name' => $details['username']]) }}!
+{{ __('Szia, :name', ['name' => $details['username']]) }}!
 
-{{ __('Someone (probably you) used this email address to create an account at :site.', ['site' => URL::to('/')]) }}
+{{ __('Valaki elindított egy regisztrációs folyamatot a Destination.hu oldalon.') }}
 
-{{ __('If it was you who tried to create an account, please confirm your action by visiting this link') }}:
+{{ __('Amennyiben te voltál az, kattints az alábbi linkre a regisztráció véglegesítéséhez') }}:
 
 {{ URL::to('confirm-registration') }}/{{ $details['user_id'] }}/{{ $details['unique_id'] }}

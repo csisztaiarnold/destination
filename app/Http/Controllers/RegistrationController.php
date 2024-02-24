@@ -47,7 +47,7 @@ class RegistrationController extends Controller
             'unique_id' => $unique_id,
         ]));
 
-        session()->flash('message', __('We have sent an email with a link to confirm your registration.'));
+        session()->flash('message', __('Elküldtünk az email címedre egy üzenetet azzal a linkkel amellyel megerősítheted a regisztrációdat.'));
         return redirect()->back();
     }
 
@@ -67,7 +67,7 @@ class RegistrationController extends Controller
             ->first();
 
         if (isset($already_confirmed_user->id)) {
-            session()->flash('message', __('Your registration has been already confirmed!'));
+            session()->flash('message', __('A regisztrációd már meg van erősítve!'));
             return redirect()->to('register');
         }
 
@@ -80,12 +80,12 @@ class RegistrationController extends Controller
             $user_query->update([
                 'email_verified_at' => Carbon::now(),
             ]);
-            session()->flash('message', __('Thank you! Your registration has been confirmed! You could login now.'));
+            session()->flash('message', __('Köszönjük! Sikeresen regisztráltál, most már be tudsz lépni a felhasználói felületre.'));
             return redirect()->to('login');
         }
 
         return redirect()->to('register')->withErrors([
-            'registration_confirm_failed' => __('Sorry, something went wrong.'),
+            'registration_confirm_failed' => __('Sajnáljuk, a regisztráció nem sikerült.'),
         ]);
     }
 
@@ -114,7 +114,7 @@ class RegistrationController extends Controller
                 'user_id' => $user->id,
                 'unique_id' => $unique_id,
             ]));
-            session()->flash('message', __('We have sent an email with a link to confirm your password reset.'));
+            session()->flash('message', __('Elküldtünk egy emailt a jelszó megváltoztatásához szükséges linkkel.'));
             return redirect()->back();
         }
 
@@ -149,19 +149,19 @@ class RegistrationController extends Controller
             session()->flash(
                 'warning',
                 __(
-                    'We have created a new password for you. Please change it as soon as you login to your dashboard.<br /> <strong>You will be able to use this link only once.</strong>'
+                    'Létrehoztunk egy új jelszót. Kérjük cseréld le amint beléptél a felhasználói felületre.<br /> <strong>Ezt a linket csak egyszer tudod majd használni.</strong>'
                 )
             );
             return view('user.login', [
                 'email' => $user->email,
                 'tmp_password' => $tmp_password,
-                'title' => __('Login'),
+                'title' => __('Bejelentkezés'),
                 'page_class' => 'login',
             ]);
         }
 
         return redirect()->to('reset-password')->withErrors([
-            'password_reset_confirm_failed' => __('Sorry, something went wrong.'),
+            'password_reset_confirm_failed' => __('Elküldtünk az email címedre egy üzenetet azzal a linkkel amellyel megerősítheted a regisztrációdat.'),
         ]);
     }
 }

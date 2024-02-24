@@ -168,7 +168,7 @@ Route::get('register', function () {
     return view('user.register', ['title' => __('Register'), 'page_class' => 'register']);
 })->name('register');
 Route::get('reset-password', function () {
-    return view('user.reset-password', ['title' => __('Reset password'), 'page_class' => 'reset_password']);
+    return view('user.reset-password', ['title' => __('Reset password'), 'page_class' => 'password-reset']);
 })->name('reset_password');
 Route::post('send-email-reset-password', [RegistrationController::class, 'sendPasswordResetEmail'])->name('send_email_reset_password');
 Route::post('send-registration', [RegistrationController::class, 'registration'])->name('send_registration');

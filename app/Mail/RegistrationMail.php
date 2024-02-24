@@ -29,7 +29,7 @@ class RegistrationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject(__('Please confirm your registration'))
+        return $this->subject(__('Regisztráció megerősítése a Destination.hu oldalon'))
             ->view('emails.registration-confirm')
             ->text('emails.registration-confirm-plaintext');;
     }

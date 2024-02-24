@@ -95,7 +95,12 @@ header {
           height: unset;
           padding: 10px 15px;
           vertical-align: middle;
-          border-bottom: 1px solid #eee;
+          border-bottom: 1px solid #ddd;
+          border-right: 1px solid #ddd;
+        }
+
+        @media (max-width: 400px) {
+          border-right: none;
         }
 
         &:hover {

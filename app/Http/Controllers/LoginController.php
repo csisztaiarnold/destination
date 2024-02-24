@@ -28,7 +28,7 @@ class LoginController extends Controller
         }
 
         return back()->withErrors([
-            'error' => __('The provided credentials do not match our records.'),
+            'error' => __('Hibás email vagy jelszó.'),
         ])->withInput(request()->except('password'));
     }
 
@@ -41,7 +41,7 @@ class LoginController extends Controller
     {
         session()->flush();
         auth()->logout();
-        session()->flash('message', __('You have successfully logged out.'));
+        session()->flash('message', __('Sikeres kilépés.'));
         return redirect()->to('login');
     }
 }

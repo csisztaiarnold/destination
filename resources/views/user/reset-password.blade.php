@@ -4,7 +4,7 @@
 
     <div class="password-reset-form">
 
-        <h1>{{ __('Reset your password') }}</h1>
+        <h1>{{ __('Jelszó megváltoztatása') }}</h1>
 
         @if($errors->any())
             <div class="message error">{{ $errors->first() }}</div>
@@ -21,7 +21,7 @@
                 <input type="email" name="email" id="email" value="{{ old('email') }}" class="text" required />
             </div>
 
-            <input type="submit" class="button button-primary" value="{{ __('Send an email with password reset link') }}" />
+            <input type="submit" class="button button-primary" value="{{ __('Jelszó megváltoztatása') }}" />
         </form>
 
         @endif

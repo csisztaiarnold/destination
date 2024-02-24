@@ -4,7 +4,7 @@
 
 <div class="login-form">
 
-    <h1>{{ __('Login') }}</h1>
+    <h1>{{ __('Bejelentkezés') }}</h1>
 
     @if($errors->any())
         <div class="message error">{{ $errors->first() }}</div>
@@ -35,10 +35,10 @@
 
         @if(isset($tmp_password))<input type="hidden" name="from_password_reset" value="1" />@endif
 
-        <input type="submit" class="button button-primary" value="{{ __('Login') }}" />
+        <input type="submit" class="button button-primary" value="{{ __('Bejelentkezés') }}" />
     </form>
 
-    <div class="forgot-your-password"><a href="{{ route('reset_password') }}" title="{{ __('Forgot your password?') }}">{{ __('Forgot your password?') }}</a></div>
+    <div class="forgot-your-password"><a href="{{ route('reset_password') }}" title="{{ __('Elfejeltetted a jelszót?') }}">{{ __('Elfejeltetted a jelszót?') }}</a></div>
 
 </div>
 
