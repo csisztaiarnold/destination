@@ -1802,4 +1802,14 @@ header {
       vertical-align: middle;
       padding: 0 5px 3px 0; }
 
+.dashboard .dashboard-inner-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between; }
+  .dashboard .dashboard-inner-wrapper .dashboard-item {
+    border: 1px solid #ddd;
+    padding: 0 20px 20px 20px;
+    width: 48%; }
+
 /*# sourceMappingURL=main.css.map */

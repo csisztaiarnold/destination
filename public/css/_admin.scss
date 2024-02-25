@@ -190,3 +190,18 @@
     }
   }
 }
+
+.dashboard {
+  .dashboard-inner-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+    .dashboard-item {
+      border: 1px solid #ddd;
+      padding: 0 20px 20px 20px;
+      width: 48%;
+    }
+  }
+}

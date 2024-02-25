@@ -29,7 +29,7 @@ class PasswordResetMail extends Mailable
      */
     public function build()
     {
-        return $this->subject(__('Your password reset link'))
+        return $this->subject(__('Jelszó megváltoztatása a Destination.hu oldalon'))
             ->view('emails.password-reset')
             ->text('emails.password-reset-plaintext');;
     }

@@ -9,7 +9,7 @@
     <h1>{{ __('Szia :name', ['name' => $details['username']]) }}!</h1>
     {{ __('Valaki elindított egy jelszóváltoztatási folyamatot a Destination.hu oldalon.') }}<br />
     <br />
-    {{ __('Amennyiben te szeretnéd megváltoztatni a jelszavát a Destination.hu oldalon, kattints a következő linkre') }}:<br />
+    {{ __('Amennyiben te vagy az, aki megszeretné változtatni a jelszavát a Destination.hu oldalon, kattints a következő linkre') }}:<br />
     <br />
     <a href="{{ URL::to('confirm-password-reset') }}/{{ $details['user_id'] }}/{{ $details['unique_id'] }}" title="{{ __('Jelszó változtatása') }}">{{ URL::to('confirm-password-reset') }}/{{ $details['user_id'] }}/{{ $details['unique_id'] }}</a><br />
     <br />

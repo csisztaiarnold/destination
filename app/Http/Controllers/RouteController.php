@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Place;
 use App\Models\Route;
-use App\Models\UserRoute;
 use GuzzleHttp\Client as Guzzle;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Contracts\Foundation\Application;
@@ -175,8 +174,7 @@ class RouteController extends Controller
         $this->route->where('id', $route->id)
             ->update([
                 'slug' => $route_slug,
-                'name' => $name,
-                'user_id' => auth()->id() ?? null
+                'name' => $name
             ]);
         return redirect('show-route/' . $route_slug . '/' . $route->id);
     }
