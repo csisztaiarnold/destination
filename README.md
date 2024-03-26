@@ -66,18 +66,55 @@ docker-compose exec php sh
 wodby@php.container:/var/www/html $ cd public
 ```
 
-11. Install the project with Composer.
+11. Create a `cache`, `sessions` and `views` folder in the `storage/framework` folder. Also create a `data` folder in the `storage/framework/cache`. Execute `chmod -R 775 framework`.
+
+12. Install the project with Composer.
 ```shell
 composer update
 ```
 
-12. Generate an application key.
+13. Generate an application key and clear the cache.
 ```shell
 php artisan key:generate
+php artisan cache:clear
 ```
-13. Import the database.
-14. Import the images to `destination/public/item_images/`.
-15. Go to http://destination.docker.localhost:PORT
+
+14. Add a `.htaccess` file to the root of the project with the following content:
+
+```
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]
+```
+
+15. Add a `.htaccess` file to the `public` folder of the project with the following content:
+
+```
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+```
+
+16. Import the database.
+17. Import the images to `destination/public/item_images/`.
+18. Go to http://destination.docker.localhost:PORT
 
 ## Backend workflow
 
