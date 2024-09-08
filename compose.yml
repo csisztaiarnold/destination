@@ -1,0 +1,73 @@
+services:
+  mariadb:
+    image: wodby/mariadb:$MARIADB_TAG
+    container_name: "${APP_NAME}_mariadb"
+    stop_grace_period: 30s
+    environment:
+      MYSQL_ROOT_PASSWORD: $DB_ROOT_PASSWORD
+      MYSQL_DATABASE: $DB_DATABASE
+      MYSQL_USER: $DB_USERNAME
+      MYSQL_PASSWORD: $DB_PASSWORD
+
+  php:
+    image: wodby/php:$PHP_TAG
+    container_name: "${APP_NAME}_php"
+    environment:
+      PHP_EXTENSIONS_DISABLE: xhprof,spx
+      PHP_MAIL_MIXED_LF_AND_CRLF: 'On'
+      MSMTP_HOST: mailpit
+      MSMTP_PORT: 1025
+      DB_HOST: $DB_HOST
+      DB_USER: $DB_USERNAME
+      DB_PASSWORD: $DB_PASSWORD
+      DB_NAME: $DB_USERNAME
+      PHP_FPM_USER: wodby
+      PHP_FPM_GROUP: wodby
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./:/var/www/html:cached
+
+  apache:
+    image: wodby/apache:$APACHE_TAG
+    container_name: "${APP_NAME}_apache"
+    depends_on:
+      - php
+    environment:
+      APACHE_LOG_LEVEL: debug
+      APACHE_BACKEND_HOST: php
+      APACHE_VHOST_PRESET: php
+      APACHE_DOCUMENT_ROOT: /var/www/html/public
+    volumes:
+      - ./:/var/www/html:cached
+    labels:
+      - "traefik.http.routers.${APP_NAME}_apache.rule=Host(`${APP_BASE_URL}`)"
+
+  mailpit:
+    image: axllent/mailpit
+    container_name: "${APP_NAME}_mailpit"
+    labels:
+      - "traefik.http.services.${APP_NAME}_mailpit.loadbalancer.server.port=8025"
+      - "traefik.http.routers.${APP_NAME}_mailpit.rule=Host(`mailpit.${APP_BASE_URL}`)"
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+    container_name: "${APP_NAME}_pma"
+    environment:
+      PMA_HOST: $DB_HOST
+      PMA_USER: $DB_USERNAME
+      PMA_PASSWORD: $DB_PASSWORD
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+      UPLOAD_LIMIT: 1G
+    labels:
+      - "traefik.http.routers.${APP_NAME}_pma.rule=Host(`pma.${APP_BASE_URL}`)"
+
+  traefik:
+    image: traefik:v2.0
+    container_name: "${APP_NAME}_traefik"
+    command: --api.insecure=true --providers.docker
+    ports:
+      - '8022:80'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock

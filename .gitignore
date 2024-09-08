@@ -22,6 +22,5 @@ yarn-error.log
 /public/.htpasswd
 /public/.htaccess
 .htpasswd
-.htaccess
 /public/item_images
 /config
