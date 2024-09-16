@@ -65,13 +65,13 @@ class PlaceController extends Controller
     /**
      * PlaceController constructor.
      *
-     * @param Category     $category
-     * @param Image        $image
+     * @param Category $category
+     * @param Image $image
      * @param ImageManager $intervention_image
-     * @param Locality     $locality
-     * @param Place        $place
-     * @param Route        $route
-     * @param Search       $search
+     * @param Locality $locality
+     * @param Place $place
+     * @param Route $route
+     * @param Search $search
      */
     public function __construct(
         Category $category,
@@ -94,8 +94,8 @@ class PlaceController extends Controller
     /**
      * List submissions based on search query.
      *
-     * @param string $slug      The search query slug
-     * @param int    $search_id The search ID
+     * @param string $slug The search query slug
+     * @param int $search_id The search ID
      * @return Application|Factory|View
      */
     public function list(string $slug, int $search_id)
@@ -168,8 +168,8 @@ class PlaceController extends Controller
     /**
      * Shows the place.
      *
-     * @param string $slug     The place's slug
-     * @param int    $place_id The place's ID
+     * @param string $slug The place's slug
+     * @param int $place_id The place's ID
      * @return Application|Factory|View
      */
     public function show(string $slug, int $place_id)
@@ -177,8 +177,7 @@ class PlaceController extends Controller
         $place = $this->place->withoutGlobalScope(StatusScope::class)->selectRaw(
             '*, (SELECT `name` FROM `localities` WHERE id = places.city_id) as city_name, (SELECT `name` FROM `localities` WHERE id = places.county_id) as county_name'
         )->where('id', $place_id)->first();
-        if ($place->status === 'active' || ($place->user_id === auth()->id(
-                ) && $place->status !== 'active') || (isset(Auth::user()->role) && Auth::user()->role === 'admin')) {
+        if ($place->status === 'active' || ($place->user_id === auth()->id() && $place->status !== 'active') || (isset(Auth::user()->role) && Auth::user()->role === 'admin')) {
             return view('place.show', [
                 'page_class' => 'place-page',
                 'title' => $place->name,
@@ -439,8 +438,7 @@ class PlaceController extends Controller
             $this->image->reduceOrderWhereOrderIsGreaterThanCurrentOrder($image->row_order, $place->id);
 
             // Delete the image files
-            $image_filename = base_path(
-                ) . '/public/item_images/' . $image->place_id . '/' . $image->filename . '_' . $image->id;
+            $image_filename = base_path() . '/public/item_images/' . $image->place_id . '/' . $image->filename . '_' . $image->id;
             unlink($image_filename . '.' . $image->extension);
             unlink($image_filename . '_thumb.' . $image->extension);
             unlink($image_filename . '_mthumb.' . $image->extension);
@@ -456,7 +454,7 @@ class PlaceController extends Controller
      * Update the order of images.
      *
      * @param string $direction The direction of the reorder
-     * @param int    $image_id  The image ID
+     * @param int $image_id The image ID
      *
      * @return RedirectResponse
      */

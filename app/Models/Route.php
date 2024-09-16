@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -52,7 +53,7 @@ class Route extends Model
      *
      * @param array $places
      * @return mixed
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      */
     public function queryOsrmForWaypoints(array $places)
     {

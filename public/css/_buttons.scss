@@ -1,149 +1,149 @@
 .button {
-  border: 0;
-  margin: 0;
-  padding: 15px 20px;
-  font-size: 1em;
-  text-transform: uppercase;
-  font-weight: 600;
-  border-radius: $border-radius-primary;
+    border: 0;
+    margin: 0;
+    padding: 15px 20px;
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: $border-radius-primary;
 
-  &.button-primary {
-    background-color: $btn-bg-primary;
-    color: $btn-color-primary;
-  }
+    &.button-primary {
+        background-color: $btn-bg-primary;
+        color: $btn-color-primary;
+    }
 }
 
 .add-to-route, .reorder {
-  position: relative;
-  margin: 0 0 20px 20px;
-  background-color: #444;
-  cursor: pointer;
-  transition: 0.3s;
-  display: inline-block;
-  background-image: $red_linear_gradient;
-  color: #fff;
-  font-size: 0.85em;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 8px 15px 8px 33px;
-  opacity: 1;
-  line-height: 1;
-  border-radius: 3px;
+    position: relative;
+    margin: 0 0 20px 20px;
+    background-color: #444;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+    background-image: $red_linear_gradient;
+    color: #fff;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 8px 15px 8px 33px;
+    opacity: 1;
+    line-height: 1;
+    border-radius: 3px;
 
-  &::before {
-    position: absolute;
-    top: 7px;
-    left: 10px;
-    font-size: 2em;
-    line-height: 16px;
-    text-align: center;
-    font-weight: 400;
-    height: 16px;
-    width: 16px;
-    color: $color-txt-secondary;
-    border-radius: 8px;
-    background-color: #fff;
-  }
+    &::before {
+        position: absolute;
+        top: 7px;
+        left: 10px;
+        font-size: 2em;
+        line-height: 16px;
+        text-align: center;
+        font-weight: 400;
+        height: 16px;
+        width: 16px;
+        color: $color-txt-secondary;
+        border-radius: 8px;
+        background-color: #fff;
+    }
 
-  @media (max-width: 960px) {
-    margin: 0 0 10px 10px;
-  }
+    @media (max-width: 960px) {
+        margin: 0 0 10px 10px;
+    }
 }
 
 .reorder {
-  font-size: 0.7em;
+    font-size: 0.7em;
 
-  &::before {
-    top: 5px;
-    left: 10px;
-    font-size: 1.3em;
-  }
+    &::before {
+        top: 5px;
+        left: 10px;
+        font-size: 1.3em;
+    }
 }
 
 .reorder-up {
 
-  &::before {
-    line-height: 15px;
-    content: '⯅';
-  }
+    &::before {
+        line-height: 15px;
+        content: '⯅';
+    }
 }
 
 .reorder-down {
-  left: unset;
-  right: 20px;
+    left: unset;
+    right: 20px;
 
-  &::before {
-    content: '⯆';
-  }
+    &::before {
+        content: '⯆';
+    }
 }
 
 .add-to-route {
 
-  &::before {
-    content: '+';
-  }
-
-  &.active {
-
     &::before {
-      content: '-';
-      line-height: 12px;
+        content: '+';
     }
-  }
 
-  &.disabled {
-    opacity: 0.3;
-    cursor: unset;
+    &.active {
 
-    &::before {
+        &::before {
+            content: '-';
+            line-height: 12px;
+        }
     }
-  }
+
+    &.disabled {
+        opacity: 0.3;
+        cursor: unset;
+
+        &::before {
+        }
+    }
 }
 
 .delete-route, .google-maps-route, .save-route, .save-route-button, .set-private, .set-public {
-  background-color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-  display: inline-block;
-  color: $color-txt-secondary;
-  font-size: 0.8em;
-  text-transform: uppercase;
-  font-weight: 600;
-  padding: 5px 10px;
-  opacity: 1;
-  border-radius: 3px;
-  z-index: 10000;
+    background-color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+    color: $color-txt-secondary;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 5px 10px;
+    opacity: 1;
+    border-radius: 3px;
+    z-index: 10000;
 
-  .material-icons {
-    font-size: 1.5em;
-    vertical-align: -5px;
-  }
+    .material-icons {
+        font-size: 1.5em;
+        vertical-align: -5px;
+    }
 }
 
 .google-maps-route {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
 }
 
 .delete-route {
-  background-color: $btn-bg-secondary;
-  color: #fff;
+    background-color: $btn-bg-secondary;
+    color: #fff;
 }
 
 .save-route, .set-private, .set-public {
-  background-color: $btn-bg-primary;
-  color: #fff;
+    background-color: $btn-bg-primary;
+    color: #fff;
 }
 
 .route-actions {
-  margin-top: 20px;
-  text-align: center;
+    margin-top: 20px;
+    text-align: center;
 }
 
 .save-route-button {
-  border: none;
-  background-color: $btn-save;
-  color: #fff;
-  margin-top: 5px;
+    border: none;
+    background-color: $btn-save;
+    color: #fff;
+    margin-top: 5px;
 }

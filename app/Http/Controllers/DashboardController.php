@@ -18,7 +18,8 @@ class DashboardController
      */
     protected $route;
 
-    public function __construct(Route $route) {
+    public function __construct(Route $route)
+    {
         $this->route = $route;
     }
 

@@ -1,39 +1,39 @@
 .rating {
-  display: none !important;
-  color: rgba(255, 255, 255, 0.5);
-  display: inline-block;
-  float: right;
-  padding-right: 10px;
+    display: none !important;
+    color: rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    float: right;
+    padding-right: 10px;
 
-  .material-icons {
-    font-size: 14px;
+    .material-icons {
+        font-size: 14px;
 
-    &.active {
-      color: #FFB904;
+        &.active {
+            color: #FFB904;
+        }
     }
-  }
 }
 
 .logged-in {
-  .voting-mouseover, .voting-mouseover-finished {
-    color: #eb4f34 !important;
-    cursor: pointer;
-  }
+    .voting-mouseover, .voting-mouseover-finished {
+        color: #eb4f34 !important;
+        cursor: pointer;
+    }
 }
 
 .place-page .header {
 
-  .rating {
-    float: left;
+    .rating {
+        float: left;
 
-    .material-icons {
-      font-size: 24px;
+        .material-icons {
+            font-size: 24px;
+        }
     }
-  }
 
 }
 
 .rating .done {
-  color: $color-ok;
-  display: none;
+    color: $color-ok;
+    display: none;
 }

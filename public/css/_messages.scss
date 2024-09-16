@@ -1,21 +1,21 @@
 .message {
-  border-radius: $border-radius-primary;
-  padding: 15px;
-  margin-bottom: 20px;
-  line-height: 1.6em;
+    border-radius: $border-radius-primary;
+    padding: 15px;
+    margin-bottom: 20px;
+    line-height: 1.6em;
 
-  &.error {
-    background-color: #efcbcb;
-    color: #974d4d;
-  }
+    &.error {
+        background-color: #efcbcb;
+        color: #974d4d;
+    }
 
-  &.warning {
-    background-color: #f3e2ae;
-    color: #473318;
-  }
+    &.warning {
+        background-color: #f3e2ae;
+        color: #473318;
+    }
 
-  &.success {
-    background-color: #d3efcb;
-    color: #3b793a;
-  }
+    &.success {
+        background-color: #d3efcb;
+        color: #3b793a;
+    }
 }

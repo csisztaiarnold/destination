@@ -1,195 +1,198 @@
 .route-arrow {
-  text-align: center;
+    text-align: center;
 
-  img {
-    width: 40px;
-    opacity: 0.3;
-    margin-bottom: 15px;
-  }
+    img {
+        width: 40px;
+        opacity: 0.3;
+        margin-bottom: 15px;
+    }
 }
 
 .route-step-container, .route-step-container-top {
-  margin: 0;
-  padding: 0;
-
-  h1 {
-    font-size: 1.6em;
     margin: 0;
-    padding: 20px 0 10px 0;
-    text-align: center;
-  }
+    padding: 0;
 
-  .info {
-    text-align: center;
-    font-weight: 600;
-  }
-
-  .route-item-container {
-    padding: 20px 0 0 0;
-    margin: 0;
-
-    .delete-item {
-      position: absolute;
-      z-index: 100;
-      top: 20px;
-      right: 0px;
-      border-radius: 0 3px 0 3px;
-      background-image: $red_linear_gradient;
-      padding: 1px 1px 0 0;
-      margin: 0;
-      height: 18px;
-
-      .material-icons {
-        font-size: 1.1em;
-      }
-
-      a {
-        color: #fff;
-        padding: 0;
+    h1 {
+        font-size: 1.6em;
         margin: 0;
-        line-height: 1;
-      }
+        padding: 20px 0 10px 0;
+        text-align: center;
     }
-  }
 
-  .route-step-arrow, .route-step-finish, .route-start {
-    background-image: url('../img/route-arrow.png');
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-  }
+    .info {
+        text-align: center;
+        font-weight: 600;
+    }
 
-  .route-step-finish {
-    background-image: url('../img/route-finish.png');
-  }
+    .route-item-container {
+        padding: 20px 0 0 0;
+        margin: 0;
 
-  .route-start {
-    background-image: url('../img/route-start.png');
-    height: 100px;
-  }
+        .delete-item {
+            position: absolute;
+            z-index: 100;
+            top: 20px;
+            right: 0px;
+            border-radius: 0 3px 0 3px;
+            background-image: $red_linear_gradient;
+            padding: 1px 1px 0 0;
+            margin: 0;
+            height: 18px;
 
-  .spacer {
-    margin: 0;
-    padding: 0;
-    height: 0;
-  }
+            .material-icons {
+                font-size: 1.1em;
+            }
+
+            a {
+                color: #fff;
+                padding: 0;
+                margin: 0;
+                line-height: 1;
+            }
+        }
+    }
+
+    .route-step-arrow, .route-step-finish, .route-start {
+        background-image: url('../img/route-arrow.png');
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+    }
+
+    .route-step-finish {
+        background-image: url('../img/route-finish.png');
+    }
+
+    .route-start {
+        background-image: url('../img/route-start.png');
+        height: 100px;
+    }
+
+    .spacer {
+        margin: 0;
+        padding: 0;
+        height: 0;
+    }
 }
 
 .route-step-container-top {
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .route-separator {
-  height: 50px;
+    height: 50px;
 
-  .line:after {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    border-left: 2px dashed #888;
-  }
+    .line:after {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        border-left: 2px dashed #888;
+    }
 }
 
 .save-route-form {
-  display: none;
+    display: none;
 
-  input.text {
-    width: 50%;
-    font-size: 16px;
-  }
+    input.text {
+        width: 50%;
+        font-size: 16px;
+    }
 }
 
 .route-add-notification {
-  position: fixed;
-  background-color: #fff;
-  padding: 10px;
-  font-size: 13px;
-  width: 150px;
-  line-height: 1.2em;
-  height: auto;
-  text-align: center;
-  z-index: 59000;
-  top: 90px;
-  right: 5px;
-  border-radius: 3px;
-  transition: 0.5s;
-  box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-  display: none;
+    position: fixed;
+    background-color: #fff;
+    padding: 10px;
+    font-size: 14px;
+    width: 150px;
+    line-height: 1.2em;
+    height: auto;
+    text-align: center;
+    z-index: 59000;
+    top: 90px;
+    right: 5px;
+    border-radius: 3px;
+    transition: 0.5s;
+    box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.75);
+    display: none;
+    background-image: linear-gradient(30deg, #fc4444 0%, #bb1a1a 100%);
+    color: #fff;
+    font-weight: bold;
 }
 
 .route-saved {
-  font-size: 1.2em;
-  padding: 20px 0 0 0;
+    font-size: 1.2em;
+    padding: 20px 0 0 0;
 }
 
 .route-list-container {
 
-  .saved-route {
-    padding-bottom: 20px;
+    .saved-route {
+        padding-bottom: 20px;
 
-    h2 {
-      font-size: 1.1em;
-      font-weight: 600;
-      margin: 0 0 5px 0;
-      padding: 0;
+        h2 {
+            font-size: 1.1em;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+            padding: 0;
 
-      a {
-        color: #333;
-      }
+            a {
+                color: #333;
+            }
+        }
+
+        .saved-route-destination-list {
+            color: #666;
+            font-size: 0.8em;
+            padding-bottom: 10px;
+        }
     }
-
-    .saved-route-destination-list {
-      color: #666;
-      font-size: 0.8em;
-      padding-bottom: 10px;
-    }
-  }
 }
 
 .route-page {
-  .description {
-    height: auto;
-  }
+    .description {
+        height: auto;
+    }
 }
 
 .reorder-container {
-  display: flex;
-  margin-top: 20px;
-  padding: 0 20px 0 20px;
-  justify-content: space-between;
-
-  @media (max-width: 520px) {
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .reorder {
-    position: relative;
-  }
-
-  .reorder-down {
-    left: unset;
-    right: unset;
-  }
-
-  .reorder-up {
-    left: unset;
-    right: unset;
+    display: flex;
+    margin-top: 20px;
+    padding: 0 20px 0 20px;
+    justify-content: space-between;
 
     @media (max-width: 520px) {
-      margin-bottom: 10px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
-  }
+
+    .reorder {
+        position: relative;
+    }
+
+    .reorder-down {
+        left: unset;
+        right: unset;
+    }
+
+    .reorder-up {
+        left: unset;
+        right: unset;
+
+        @media (max-width: 520px) {
+            margin-bottom: 10px;
+        }
+    }
 }
 
 .save-route {
-  @media (max-width: 520px) {
-    margin-top: 10px;
-  }
+    @media (max-width: 520px) {
+        margin-top: 10px;
+    }
 }
